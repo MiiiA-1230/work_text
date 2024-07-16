@@ -23,7 +23,7 @@ function MongoDump_Full() {
     --host "$MongoServerIP" \
     --port "$MongoServerPort" \
     --db "$MongoServerDatabase" \
-    --out "$MongoServerBackupPath" \
+    --out "$MongoServerBackupPath/$MongoServerBackupName" \
     --username "$MongoServerUser" \
     --password "$MongoServerPassword" \
     --authenticationDatabase "$MongoServerAuthDatabase" \
@@ -31,6 +31,7 @@ function MongoDump_Full() {
     --maxTimeMS "$MongoServerBackupMaxTimeMS" \
     --gzip; then
     echo "MongoDump_Full ERROR"
+    return 1
 fi
 }
 
