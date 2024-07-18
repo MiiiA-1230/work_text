@@ -20,6 +20,7 @@ export MongoServerBackupName="mongodb_backup_$(date +%Y%m%d%H%M%S)"
 function MongoDump_Full() {
     # 全量备份指定数据库
     set -euo
+    # 使用未赋值的变量，shell会报错
     if ! mongodump \
     --host "$MongoServerIP" \
     --port "$MongoServerPort" \
