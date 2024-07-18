@@ -12,13 +12,14 @@ export MongoServerBackupPath="/home/mongodb/backup"
 export MongoServerUser="root"
 export MongoServerPassword="123456"
 export MongoServerAuthDatabase="admin"
-export MongoServerBackupNumProcesses="4"
+export MongoServerBackupNumProcesses="8"
 export MongoServerBackupMaxTimeMS="3600000"
 export MongoServerBackupName="mongodb_backup_$(date +%Y%m%d%H%M%S)"
 
 
 function MongoDump_Full() {
     # 全量备份指定数据库
+    set -euo
     if ! mongodump \
     --host "$MongoServerIP" \
     --port "$MongoServerPort" \
